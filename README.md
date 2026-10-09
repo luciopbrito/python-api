@@ -145,6 +145,29 @@ app = FastAPI(title="API de Pedidos")
 app.include_router(pedidos.router)
 ```
 
+### Depends
+
+It is a function responsible for indicating the dependency. The snippet code below shows how to use it.
+
+```python
+from fastapi import APIRouter, status, Depends
+from app.schemas.pedido import PedidoCreate, PedidoResponse
+from app.services.pedido_service import PedidoService
+from typing import Annotated
+
+router = APIRouter(prefix="/pedidos", tags=["Pedidos"])
+
+@router.get(
+    "",
+    response_model=list[PedidoResponse],
+    status_code=status.HTTP_200_OK
+)
+def list_pedidos(
+    service: Depends(PedidoService)
+):
+    return service.listar()
+```
+
 ## pydantic
 
 It is a common module from Python. Because of this, it is not necessary to install via `pip`. 
@@ -159,4 +182,33 @@ It is a function from `pydantic` with responsibility of creating a field with sp
 
 ```python
 produto: str = Field(min_length=1)
+```
+
+## typing
+
+### Annotated
+
+Annotated is a class from Python's typing module that allows metadata to be associated with a type annotation. In FastAPI, it can be used with Depends() to declare dependencies directly in a function's parameters.
+
+The following example demonstrates how to use Annotated to inject a PedidoService instance into the list_pedidos endpoint without manually creating an instance inside the function.
+
+FastAPI resolves the dependency and passes the resulting instance to the endpoint, keeping dependency management separate from the endpoint's business logic.
+
+```python
+from fastapi import APIRouter, status, Depends
+from app.schemas.pedido import PedidoCreate, PedidoResponse
+from app.services.pedido_service import PedidoService
+from typing import Annotated
+
+router = APIRouter(prefix="/pedidos", tags=["Pedidos"])
+
+@router.get(
+    "",
+    response_model=list[PedidoResponse],
+    status_code=status.HTTP_200_OK
+)
+def list_pedidos(
+   service: Depends(PedidoService)
+):
+    return service.listar()
 ```
