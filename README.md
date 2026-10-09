@@ -92,3 +92,19 @@ After initializing the Web API you can access the documentiation by URL below. T
 ```txt
 http://localhost:8080/docs
 ```
+
+## pydantic
+
+It is a common module from Python. Because of this, it is not necessary to install via `pip`. 
+
+### BaseModel
+
+It is a class from `pydantic` with responsibility of creating pydantic model. You can create the models easily.
+
+### Field
+
+It is a function from `pydantic` with responsibility of creating a field with specific rule. The snippet code below defining a property as `string` with a rule that validates whether the string has at least 1 character.
+
+```python
+produto: str = Field(min_length=1)
+```
