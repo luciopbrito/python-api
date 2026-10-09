@@ -28,6 +28,33 @@ The syntax is very similar with nodejs-way.
 from <package> import <definition/source>
 ```
 
+### project struture folder
+
+The project struture folder will follow the example below.
+
+```txt
+python-api/
+├── .venv/
+├── app/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── api/
+│   │   └── routes/
+│   │       └── pedidos.py
+│   ├── schemas/
+│   │   └── pedido.py
+│   ├── services/
+│   │   └── pedido_service.py
+│   ├── repositories/
+│   │   └── pedido_repository.py
+│   └── core/
+│       └── config.py
+├── tests/
+├── pyproject.toml
+├── .env.example
+└── README.md
+```
+
 ## FastAPI
 
 ### Installing the FastAPI
