@@ -93,6 +93,49 @@ After initializing the Web API you can access the documentiation by URL below. T
 http://localhost:8080/docs
 ```
 
+### APIRouter
+
+It is a class from `fastapi` responsible for defining the controller (group of path operations — CRUD). As you can see below,  the `prefix` parameter defines the controller name.
+
+```python
+router = APIRouter(prefix="/pedidos", tags=["Pedidos"])
+```
+
+The snippet code below shows how to use the post path operation.
+
+```python
+from fastapi import APIRouter, status
+from app.schemas.pedido import PedidoCreate, PedidoResponse
+
+router = APIRouter(prefix="/pedidos", tags=["Pedidos"])
+
+@router.post(
+    "",
+    response_model=PedidoResponse,
+    status_code=status.HTTP_201_CREATED,
+)
+def criar_pedido(pedido: PedidoCreate):
+    return PedidoResponse(
+        id=1,
+        produto=pedido.produto,
+        quantidade=pedido.quantidade,
+        status="criado",
+    )
+```
+
+### Including router (APIRouter class) in FastAPI
+
+The `include_router` method is to responsible for including the routers created from `APIRouter` class. The snippet code below shows how to use it.
+
+```python
+from fastapi import FastAPI
+from app.api.routes import pedidos
+
+app = FastAPI(title="API de Pedidos")
+
+app.include_router(pedidos.router)
+```
+
 ## pydantic
 
 It is a common module from Python. Because of this, it is not necessary to install via `pip`. 
