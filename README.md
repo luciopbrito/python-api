@@ -59,6 +59,15 @@ python-api/
 └── README.md
 ```
 
+### type annotation
+
+It is common to define a specific type for a method or property. Python provides the optional type annotation. The snippet code below shows how to use it.
+
+```python
+def obter_pedido_service() -> PedidoService:
+    return PedidoService()
+```
+
 ## FastAPI
 
 ### Installing the FastAPI
