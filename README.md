@@ -18,10 +18,46 @@ As we know, it is necessary to define the .venv folder. After that, we need to e
 source .venv/bin/activate
 ```
 
-## Installing the FastAPI
+## Concepts 
+
+### How to import from package
+
+The syntax is very similar with nodejs-way.
+
+```python
+from <package> import <definition/source>
+```
+
+## FastAPI
+
+### Installing the FastAPI
 
 To use the FastAPI package, we need to install first. The command to install is below.
 
 ```sh
 python -m pip install "fastapi[standard]"
+```
+
+### Using FastAPI class
+
+After installing the `fastapi` package. It is necessary to import class `FastAPI`.
+
+```python
+from fastapi import FastAPI
+```
+
+### Initializing the Web API
+
+It is necessary to set up the Web API. The command to set up the Web API is below.
+
+```sh
+fastapi dev src/main.py
+```
+
+### Acessing the Web API documentation 
+
+After initializing the Web API you can access the documentiation by URL below. The FastAPI has a simular documentation with OpenAPI-style. It's good.
+
+```txt
+http://localhost:8080/docs
 ```
