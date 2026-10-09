@@ -17,3 +17,11 @@ As we know, it is necessary to define the .venv folder. After that, we need to e
 ```sh
 source .venv/bin/activate
 ```
+
+## Installing the FastAPI
+
+To use the FastAPI package, we need to install first. The command to install is below.
+
+```sh
+python -m pip install "fastapi[standard]"
+```
