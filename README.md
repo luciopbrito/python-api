@@ -28,6 +28,10 @@ The syntax is very similar with nodejs-way.
 from <package> import <definition/source>
 ```
 
+### `__init__.py` 
+
+For Python, this file is used to indicate that its folder is a module. In other words, the Python complier runs this file automaticly. So, you can import whatever you want there, and the Python will handle it.
+
 ### project struture folder
 
 The project struture folder will follow the example below.
