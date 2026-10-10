@@ -1,10 +1,7 @@
 from fastapi import FastAPI
-from app.api.routes import pedidos
+from app.api.routes import pedidos, health
 
 app = FastAPI(title="python api")
 
 app.include_router(pedidos.router)
-
-@app.get("/health")
-def health():
-  return {"status": "ok"}
+app.include_router(health.router)
