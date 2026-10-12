@@ -69,25 +69,24 @@ The project structure folder will follow the example below.
 
 ```txt
 python-api/
-├── .venv/
-├── app/
-│   ├── __init__.py
-│   ├── main.py
-│   ├── api/
-│   │   └── routes/
-│   │       └── pedidos.py
-│   ├── schemas/
-│   │   └── pedido.py
-│   ├── services/
-│   │   └── pedido_service.py
-│   ├── repositories/
-│   │   └── pedido_repository.py
-│   └── core/
-│       └── config.py
-├── tests/
-├── pyproject.toml
-├── .env.example
-└── README.md
+├── .venv/ # Virtual environment. 
+├── app/ # Source code folder.
+│   ├── __init__.py # Allow the app's folder to be a module. Could be considered the package API.
+│   ├── main.py # Entrypoint of app module. (Initializing the Web API and its services).
+│   ├── api/ # API content (routes, etc).
+│   │   └── routes/ # Each controller (path operation) must be defined here.
+│   │       └── pedidos.py # Represent controller (`/pedidos`). In other words, all endpoints that represent `pedido` resource.
+│   ├── schemas/ # Each schema must be defined here.
+│   │   └── pedido.py # Represent the `pedidos` schema.
+│   ├── services/ # Each service must be defined here.
+│   │   └── pedido_service.py # Represent the services that will be used to handle the business logic about `pedido` resource.
+│   ├── repositories/ # Each repository must be defined here.
+│   │   └── pedido_repository.py # Represent the repository that will be used to handle the `pedido` persistence. 
+│   └── core/ # Each global configuration (e.g, configuration for external services, etc)
+│       └── config.py # Represent Pydantic configuration.
+├── tests/ # Suit for testing
+├── pyproject.toml # File responsible for manage all packages in the project
+└── README.md # Represent the documentation for the project.
 ```
 
 ### type annotation
