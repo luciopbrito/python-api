@@ -63,6 +63,8 @@ from <package> import <definition/source>
 
 For Python, this file is used to indicate that its folders is a module. In other words, the Python complier runs this file automatically. So, you can import whatever you want there, and the Python will handle them.
 
+Notes: The file `__init__.py` does not necessarily need to have content in. However, whether you need to expose specific methods or property you can define them in `__init__.py`.
+
 ### project structure folder
 
 The project structure folder will follow the example below.
