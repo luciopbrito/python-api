@@ -1,18 +1,19 @@
 # python api
 
-The project goal is to handle with python environment, and define an Web API.
+The project goal is to understand the Python environment and define a Web API
 
 ## Virtual environment — .venv
 
-It is crucial to define a virtual environment to run the python. The command to create a `.venv` folder quickly is below.
+It is crucial to set up a virtual environment to run the Python. The command to create a `.venv` folder quickly is below.
 
 ```sh
 python -m venv .venv
 ```
 
-## enter in .venv
+## Activate the `.venv`
 
-As we know, it is necessary to define the .venv folder. After that, we need to enter into virtual environment. Run the command below to enter into .venv
+As we know, it is necessary to set up the `.venv` folder. After that, we need to enable the virtual environment. Run the
+command below to activate the virtual environment on the current shell `.venv`.
 
 ```sh
 source .venv/bin/activate
@@ -30,11 +31,11 @@ from <package> import <definition/source>
 
 ### `__init__.py` 
 
-For Python, this file is used to indicate that its folder is a module. In other words, the Python complier runs this file automaticly. So, you can import whatever you want there, and the Python will handle it.
+For Python, this file is used to indicate that its folders is a module. In other words, the Python complier runs this file automatically. So, you can import whatever you want there, and the Python will handle them.
 
-### project struture folder
+### project structure folder
 
-The project struture folder will follow the example below.
+The project structure folder will follow the example below.
 
 ```txt
 python-api/
@@ -61,7 +62,7 @@ python-api/
 
 ### type annotation
 
-It is common to define a specific type for a method or property. Python provides the optional type annotation. The snippet code below shows how to use it.
+It is common to define a specific type for a method or property. Python provides the optional type annotation. The code snippet below shows how to use it.
 
 ```python
 def obter_pedido_service() -> PedidoService:
@@ -72,7 +73,7 @@ def obter_pedido_service() -> PedidoService:
 
 ### Installing the FastAPI
 
-To use the FastAPI package, we need to install first. The command to install is below.
+To use the FastAPI package, we need to install first. The command to install it is below.
 
 ```sh
 python -m pip install "fastapi[standard]"
@@ -80,7 +81,7 @@ python -m pip install "fastapi[standard]"
 
 ### Using FastAPI class
 
-After installing the `fastapi` package. It is necessary to import class `FastAPI`.
+After installing the `fastapi` package, it is necessary to import the `FastAPI` class.
 
 ```python
 from fastapi import FastAPI
@@ -96,7 +97,8 @@ fastapi dev src/main.py
 
 ### Acessing the Web API documentation 
 
-After initializing the Web API you can access the documentiation by URL below. The FastAPI has a simular documentation with OpenAPI-style. It's good.
+After initializing the Web API, you can access the documentation at the URL below. FastAPI also provides similar
+documentation in OpenAPI format. It's good.
 
 ```txt
 http://localhost:8080/docs
@@ -110,7 +112,7 @@ It is a class from `fastapi` responsible for defining the controller (group of p
 router = APIRouter(prefix="/pedidos", tags=["Pedidos"])
 ```
 
-The snippet code below shows how to use the post path operation.
+The code snippet below shows how to use the post path operation.
 
 ```python
 from fastapi import APIRouter, status
@@ -134,7 +136,8 @@ def criar_pedido(pedido: PedidoCreate):
 
 ### Including router (APIRouter class) in FastAPI
 
-The `include_router` method is to responsible for including the routers created from `APIRouter` class. The snippet code below shows how to use it.
+The `include_router` method is responsible for including the routers created from `APIRouter` class. The code snippet
+below shows how to use it. 
 
 ```python
 from fastapi import FastAPI
@@ -145,9 +148,9 @@ app = FastAPI(title="API de Pedidos")
 app.include_router(pedidos.router)
 ```
 
-### Depends
+### Depends function
 
-It is a function responsible for indicating the dependency. The snippet code below shows how to use it.
+It is a function responsible for indicating the dependency. The code snippet below shows how to use it.
 
 ```python
 from fastapi import APIRouter, status, Depends
@@ -174,11 +177,12 @@ It is a common module from Python. Because of this, it is not necessary to insta
 
 ### BaseModel
 
-It is a class from `pydantic` with responsibility of creating pydantic model. You can create the models easily.
+It is a Pydantic class with the responsibility of creating a Pydantic model. You can create the models easily.
 
 ### Field
 
-It is a function from `pydantic` with responsibility of creating a field with specific rule. The snippet code below defining a property as `string` with a rule that validates whether the string has at least 1 character.
+It is a function from `pydantic` with the responsibility of creating a field with specific rule. The code snippet below 
+defining a property as `string` with a rule that validates whether the string has at least 1 character.
 
 ```python
 produto: str = Field(min_length=1)
@@ -208,7 +212,10 @@ router = APIRouter(prefix="/pedidos", tags=["Pedidos"])
     status_code=status.HTTP_200_OK
 )
 def list_pedidos(
-   service: Depends(PedidoService)
+    service: Annotated[
+        PedidoService,
+        Depends(PedidoService)
+    ]
 ):
     return service.listar()
 ```
