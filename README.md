@@ -1,6 +1,36 @@
 # python api
 
+## 📌 Table of Contents
+
+- [About](#-about)
+- [Virtual environment — .venv](#virtual-environment--venv)
+- [Activate the `.venv`](#activate-the-venv)
+- [Concepts](#concepts) 
+    - [How to import from package](#how-to-import-from-package)
+    - [`__init__.py`](#__init__py) 
+    - [project structure folder](#project-structure-folder)
+    - [type annotation](#type-annotation)
+- [FastAPI](#fastapi)
+    - [Installing the FastAPI](#installing-the-fastapi)
+    - [Using FastAPI class](#using-fastapi-class)
+    - [Initializing the Web API](#initializing-the-web-api)
+    - [Acessing the Web API documentation](#acessing-the-web-api-documentation) 
+    - [APIRouter](#apirouter)
+    - [Including router (APIRouter class) in FastAPI](#including-router-apirouter-class-in-fastapi)
+    - [Depends function](#depends-function)
+- [pydantic](#pydantic)
+    - [BaseModel](#basemodel)
+    - [Field](#field)
+- [typing](#typing)
+    - [Annotated](#annotated)
+
+---
+
+## 📖 About
+
 The project goal is to understand the Python environment and define a Web API
+
+---
 
 ## Virtual environment — .venv
 
