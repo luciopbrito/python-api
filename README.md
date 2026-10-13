@@ -165,6 +165,15 @@ class User:
   """Variable with string value"""
 ```
 
+### Function Stubs
+
+It is a Python statement that helps the Python complier understand that the method/function is not yet written — `...` 
+— allowing the code to run without errors.
+
+```python
+def get(self, id: int) -> T | None: ...
+```
+
 ## Poetry
 
 Poetry is a dependency manager tracking local dependencies of your projects and libraries.
