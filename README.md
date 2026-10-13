@@ -382,3 +382,24 @@ It is a class that represents an attribute for an ORM.
 ### mapped_column function
 
 It is responsible for defining the a column in an ORM.
+
+### Session
+
+It is a class responsible for persisting the operation to the database.
+
+#### commit method
+
+It is responsible for emitting the commit statement. The commit statement is responsible for making the changes (e.g, 
+delete, add, etc) real.
+
+### refresh method
+
+Reloads an object's attributes from the database, synchronizing its in-memory state with the current persisted state.
+
+### execute method
+
+It is responsible for executing the `select` statement on the database.
+
+### scalars method
+
+It is responsible for filtering the values from row. It helps to get only the values.
