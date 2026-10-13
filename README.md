@@ -151,6 +151,26 @@ corresponding to the `requirements.txt` path.
 pip install -r <requirements.txt-path>
 ```
 
+## Poetry
+
+Poetry is a dependency manager tracking local dependencies of your projects and libraries.
+
+### Why do you must use the Poetry?
+
+Poetry solves the problem of installing packages via pip. Make the changes to `pyproject.toml`.
+
+### How to install package with poetry
+
+```bash
+poetry install sqlalchemy
+```
+
+### How to uninstall/remove package with poetry
+
+```bash
+poetry remove sqlalchemy
+```
+
 ## FastAPI
 
 ### Installing the FastAPI
