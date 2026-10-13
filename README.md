@@ -100,6 +100,57 @@ def obter_pedido_service() -> PedidoService:
     return PedidoService()
 ```
 
+### Handling packages
+
+Every programming language has its own tools to handle packages. Some subjects will describe how to handle packages in 
+Python below.
+
+#### About `pyproject.toml`
+
+It is a file responsible for tracking all packages to build the Python app. The important packages will be in
+`[project].dependencies`. The development packages (e.g, packages that support the development period) will be in
+`.[dev]`.
+
+An example of `pyproject.toml` is below.
+
+```toml
+[project]
+name = "python-api"
+version = "0.0.0"
+requires-python = ">=3.14.7"
+dependencies = [
+    "fastapi[standard]"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "ruff"]
+```
+
+#### how to install dependencies from `pyproject.toml` via pip
+
+```bash
+pip install -e .
+```
+
+**Notes: It is necessary to have a appropriate `pyproject.toml` with `[project].dependencies` property** 
+
+#### how to set up the dependencies into requirements.txt via pip
+
+Below, it has a command that prints all packages from `.venv` to `requirements.txt`
+
+```bash
+pip freeze > requirements.txt
+```
+
+#### how to install dependencies from requirements.txt via pip
+
+To install dependencies from `requirements.txt` via `pip`, it is necessary to pass the `-r` parameter with a value
+corresponding to the `requirements.txt` path.
+
+```bash
+pip install -r <requirements.txt-path>
+```
+
 ## FastAPI
 
 ### Installing the FastAPI
