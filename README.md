@@ -335,3 +335,33 @@ def list_pedidos(
 ):
     return service.listar()
 ```
+
+## SQLAlchemy
+
+It is a package that handles the connection to the SQL databases.
+
+### create_engine
+
+It is a function that handles with SQL engine in Python. In other words, it defines pre-configuration that will be used in
+the `sessionmaker` class.
+
+```python
+engine = create_engine(
+  "mysql+mysqldb://scott:tiger@hostname/dbname",
+  pool_pre_ping=True,
+  pool_recycle=36000
+)
+```
+
+### sessionmaker
+
+It is a class responsible for setting up the session that Python will use to connect to the database. The `engine`
+variable must return the result of `create_engine`.
+
+```python
+SessionLocal = sessionmaker(
+    autocommit=False,
+    autoflush=False,
+    bind=engine,
+)
+```
