@@ -374,3 +374,11 @@ SessionLocal = sessionmaker(
     bind=engine,
 )
 ```
+
+### Mapped class
+
+It is a class that represents an attribute for an ORM.
+
+### mapped_column function
+
+It is responsible for defining the a column in an ORM.
