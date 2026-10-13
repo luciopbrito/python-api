@@ -151,6 +151,49 @@ corresponding to the `requirements.txt` path.
 pip install -r <requirements.txt-path>
 ```
 
+### How to document a method or property
+
+Python also supports the documentation for methods and properties. The follow code snippet describes how to implement it.
+
+```python
+class User:
+  def greetings(self):
+    """Function return the content 'hello' as string"""
+    return self.greeting_message
+
+  greeting_message = "Hello!!"
+  """Variable with string value"""
+```
+
+### Function Stubs
+
+It is a Python statement that helps the Python complier understand that the method/function is not yet written — `...` 
+— allowing the code to run without errors.
+
+```python
+def get(self, id: int) -> T | None: ...
+```
+
+## Poetry
+
+Poetry is a dependency manager tracking local dependencies of your projects and libraries.
+
+### Why do you must use the Poetry?
+
+Poetry solves the problem of installing packages via pip. Make the changes to `pyproject.toml`.
+
+### How to install package with poetry
+
+```bash
+poetry install sqlalchemy
+```
+
+### How to uninstall/remove package with poetry
+
+```bash
+poetry remove sqlalchemy
+```
+
 ## FastAPI
 
 ### Installing the FastAPI
@@ -301,3 +344,62 @@ def list_pedidos(
 ):
     return service.listar()
 ```
+
+## SQLAlchemy
+
+It is a package that handles the connection to the SQL databases.
+
+### create_engine
+
+It is a function that handles with SQL engine in Python. In other words, it defines pre-configuration that will be used in
+the `sessionmaker` class.
+
+```python
+engine = create_engine(
+  "mysql+mysqldb://scott:tiger@hostname/dbname",
+  pool_pre_ping=True,
+  pool_recycle=36000
+)
+```
+
+### sessionmaker
+
+It is a class responsible for setting up the session that Python will use to connect to the database. The `engine`
+variable must return the result of `create_engine`.
+
+```python
+SessionLocal = sessionmaker(
+    autocommit=False,
+    autoflush=False,
+    bind=engine,
+)
+```
+
+### Mapped class
+
+It is a class that represents an attribute for an ORM.
+
+### mapped_column function
+
+It is responsible for defining the a column in an ORM.
+
+### Session
+
+It is a class responsible for persisting the operation to the database.
+
+#### commit method
+
+It is responsible for emitting the commit statement. The commit statement is responsible for making the changes (e.g, 
+delete, add, etc) real.
+
+### refresh method
+
+Reloads an object's attributes from the database, synchronizing its in-memory state with the current persisted state.
+
+### execute method
+
+It is responsible for executing the `select` statement on the database.
+
+### scalars method
+
+It is responsible for filtering the values from row. It helps to get only the values.
