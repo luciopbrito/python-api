@@ -151,6 +151,20 @@ corresponding to the `requirements.txt` path.
 pip install -r <requirements.txt-path>
 ```
 
+### How to document a method or property
+
+Python also supports the documentation for methods and properties. The follow code snippet describes how to implement it.
+
+```python
+class User:
+  def greetings(self):
+    """Function return the content 'hello' as string"""
+    return self.greeting_message
+
+  greeting_message = "Hello!!"
+  """Variable with string value"""
+```
+
 ## Poetry
 
 Poetry is a dependency manager tracking local dependencies of your projects and libraries.
