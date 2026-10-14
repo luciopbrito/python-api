@@ -10,6 +10,16 @@
     - [`__init__.py`](#__init__py) 
     - [project structure folder](#project-structure-folder)
     - [type annotation](#type-annotation)
+    - [Handling packages](#handling-packages)
+        - [About `pyproject.toml`](#about-pyprojecttoml)
+        - [how to install dependencies from `pyproject.toml` via pip](#how-to-install-dependencies-from-pyprojecttoml-via-pip)
+        - [how to set up the dependencies into requirements.txt via pip](#how-to-set-up-the-dependencies-into-requirementstxt-via-pip)
+    - [How to document a method or property](#how-to-document-a-method-or-property)
+    - [Function Stubs](#function-stubs)
+    - [Poetry](#poetry)
+    - [Why do you must use the Poetry?](#why-do-you-must-use-the-poetry)
+    - [How to install package with poetry](#how-to-install-package-with-poetry)
+    - [How to uninstall/remove package with poetry](#how-to-uninstallremove-package-with-poetry)
 - [FastAPI](#fastapi)
     - [Installing the FastAPI](#installing-the-fastapi)
     - [Using FastAPI class](#using-fastapi-class)
@@ -23,7 +33,15 @@
     - [Field](#field)
 - [typing](#typing)
     - [Annotated](#annotated)
-
+- [SQLAlchemy](#sqlalchemy)
+    - [create_engine](#create_engine)
+    - [sessionmaker](#sessionmaker)
+    - [Mapped class](#mapped-class)
+    - [mapped_column function](#mapped_column-function)
+- [Session](#session)
+    - [refresh method](#refresh-method)
+    - [execute method](#execute-method)
+    - [scalars method](#scalars-method)
 ---
 
 ## 📖 About
