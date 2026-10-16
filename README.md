@@ -42,6 +42,10 @@
     - [refresh method](#refresh-method)
     - [execute method](#execute-method)
     - [scalars method](#scalars-method)
+- [Alembic](#alembic)
+    - [How to install the alembic via poetry](#how-to-install-the-alembic-via-poetry)
+    - [How to initialize the Alembic](#how-to-initialize-the-alembic)
+    - [How to set up the alembic/env.py](#how-to-set-up-the-alembicenvpy)
 ---
 
 ## 📖 About
@@ -421,3 +425,40 @@ It is responsible for executing the `select` statement on the database.
 ### scalars method
 
 It is responsible for filtering the values from row. It helps to get only the values.
+
+## Alembic
+
+It is a package responsible for managing the database schema migrations.
+
+### How to install the alembic via poetry
+
+```bash
+poetry add alembic
+```
+
+### How to initialize the Alembic
+
+```bash
+alembic init alembic
+```
+
+### How to set up the alembic/env.py
+
+It is necessary to set up the `target_metadata` variable by passing the base model. Also, it is necessary to set up the
+`context.configure` function by passing the `url` value.
+
+### How to ensure that the model will be generate?
+
+It is necessary to import all models in `alembic/env.py` to ensure the models generation correctly.
+
+### Quick guide
+
+| Command | Purpose |
+| --- | --- |
+| `alembic current` | Show the database's current revision |
+| `alembic history` | List migration history |
+| `alembic heads` | Show the latest revision(s) |
+| `alembic upgrade head` | Apply all pending migrations |
+| `alembic downgrade -1` | Revert one revision |
+| `alembic revision -m "description"` | Create an empty migration for manual editing |
+| `alembic check` | Check for model changes that would generate a migration |
