@@ -436,13 +436,29 @@ It is a package responsible for managing the database schema migrations.
 poetry add alembic
 ```
 
-## How to initialize the Alembic
+### How to initialize the Alembic
 
 ```bash
 alembic init alembic
 ```
 
-## How to set up the alembic/env.py
+### How to set up the alembic/env.py
 
 It is necessary to set up the `target_metadata` variable by passing the base model. Also, it is necessary to set up the
 `context.configure` function by passing the `url` value.
+
+### How to ensure that the model will be generate?
+
+It is necessary to import all models in `alembic/env.py` to ensure the models generation correctly.
+
+### Quick guide
+
+| Command | Purpose |
+| --- | --- |
+| `alembic current` | Show the database's current revision |
+| `alembic history` | List migration history |
+| `alembic heads` | Show the latest revision(s) |
+| `alembic upgrade head` | Apply all pending migrations |
+| `alembic downgrade -1` | Revert one revision |
+| `alembic revision -m "description"` | Create an empty migration for manual editing |
+| `alembic check` | Check for model changes that would generate a migration |
